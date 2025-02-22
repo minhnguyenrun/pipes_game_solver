@@ -18,7 +18,7 @@ if __name__ == "__main__":
         print("1: Greedy with an unwrapped puzzle")
         print("2: DFS with a wrap puzzle")
         print("3: Greedy with a wrap puzzle")
-        case1 = int(input("Your choice:"))
+        case1 = int(input("Your choice: "))
 
         if case1 == -1:
             break
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         print("0: From a .txt file")
         print("1: Enter manually in the terminal")
         print("2+: Generate randomly using a seed")
-        case2 = int(input("Your choice:"))
+        case2 = int(input("Your choice: "))
 
         if case2 == -1:
             print("----------------------------")
@@ -41,12 +41,14 @@ if __name__ == "__main__":
         else:
             random.seed(case2)
 
-            case3 = int(input("Size:"))
+            case3 = int(input("Size: "))
             n = case3
             if case1 == 0 or case1 == 1:
                 matrix = createMatrix(case3)
             else:
                 matrix = createMatrix_wrap(case3)
+            print(n)
+            print(matrix)
 
         print("----------------------------")
         print("Do you need visualization?")
@@ -54,13 +56,13 @@ if __name__ == "__main__":
         print("0: Step-by-step visualization")
         print("1: Show only the final answer")
         print("2: Text output only")
-        case4 = int(input("Your choice:"))
+        case4 = int(input("Your choice: "))
         
         if case4 == -1:
             print("----------------------------")
             continue
         elif case4 == 0:
-            visualizer = PipeVisualizer(900 // n)
+            visualizer = PipeVisualizer(750 // n)
             if case1 == 0:
                 visualizer.visualize_solution(n, matrix, "DFS_unwrap")
             elif case1 == 1:
@@ -86,7 +88,7 @@ if __name__ == "__main__":
                 print("----------------------------")
             
             if case4 == 1:
-                visualizer = PipeVisualizer(900 // n)
+                visualizer = PipeVisualizer(750 // n)
                 if case1 == 0 or case1 == 1:
                     visualizer.visualize(n, matrix, ans)
                 else:
