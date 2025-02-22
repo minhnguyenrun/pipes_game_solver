@@ -36,14 +36,14 @@ class Greedy(DFS):
                             score += 1
                         if len(rotation_list) == 0:
                             return 0
-                        if repeat == 0 and len(options) > len(rotation_list):
+                        if repeat == 0 and ((not options) or len(options) > len(rotation_list)):
                             if self.isConnected(i, j, rotation_matrix) == 1:
                                 options = [((i, j), rotation) for rotation in rotation_list]
                     else:
                         score += 1
 
             if score == self.target_score:
-                return rotation_matrix
+                return self.deepChecker(rotation_matrix)
 
         if not options:
             for i in range(self.n):

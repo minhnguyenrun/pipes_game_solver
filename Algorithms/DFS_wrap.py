@@ -1,4 +1,5 @@
 import copy
+from collections import deque
 
 class DFS_wrap:
     def __init__(self, n, matrix):
@@ -32,10 +33,38 @@ class DFS_wrap:
             if (j != self.n - 1 and not (rotation_matrix[i][j + 1] == "" or 'L' in rotation_matrix[i][j + 1])) or (j == self.n - 1 and not (rotation_matrix[i][0] == "" or 'L' in rotation_matrix[i][0])):
                 return 0
         else:
-            if (j != self.n - 1 and 'L' in rotation_matrix[i][j + 1]) or (j == 0 and 'L' in rotation_matrix[i][0]):
+            if (j != self.n - 1 and 'L' in rotation_matrix[i][j + 1]) or (j == self.n - 1 and 'L' in rotation_matrix[i][0]):
                 return 0
 
         return 1
+
+    def deepChecker(self, rotation_matrix):
+        color = [[0 for _ in range(self.n)] for _ in range(self.n)]
+        queue = deque()
+        queue.append((self.n // 2, self.n // 2))
+        score = 0
+        while queue:
+            i, j = queue.popleft()
+            if color[i][j] == 1:
+                continue
+            for direction in rotation_matrix[i][j]:
+                if direction == 'U':
+                    UP = i - 1 if i != 0 else self.n - 1
+                    if rotation_matrix[UP][j] != None and 'D' in rotation_matrix[UP][j]: queue.append((UP, j))
+                elif direction == 'D':
+                    DOWN = i + 1 if i != self.n - 1 else 0
+                    if rotation_matrix[DOWN][j] != None and 'U' in rotation_matrix[DOWN][j]: queue.append((DOWN, j))
+                elif direction == 'L':
+                    LEFT = j - 1 if j != 0 else self.n - 1
+                    if rotation_matrix[i][LEFT] != None and 'R' in rotation_matrix[i][LEFT]: queue.append((i, LEFT))
+                elif direction == 'R':
+                    RIGHT = j + 1 if j != self.n - 1 else 0
+                    if rotation_matrix[i][RIGHT] != None and 'L' in rotation_matrix[i][RIGHT]: queue.append((i, RIGHT))
+            color[i][j] = 1
+            score += 1
+        if score == self.target_score:
+            return rotation_matrix
+        return 0
 
 
     def findRotation(self, i, j, rotation_matrix):
@@ -116,7 +145,7 @@ class DFS_wrap:
                 break
 
         if score == self.target_score:
-             return rotation_matrix
+            return self.deepChecker(rotation_matrix)
 
         for op in options:
             copied_rotation_matrix = copy.deepcopy(rotation_matrix)

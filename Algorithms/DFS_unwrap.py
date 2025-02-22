@@ -1,4 +1,6 @@
 import copy
+import queue
+from collections import deque
 
 class DFS:
     def __init__(self, n, matrix):
@@ -8,6 +10,30 @@ class DFS:
 
     def solve(self):
         return self.findState([["" for _ in range(self.n)] for _ in range(self.n)])
+
+    def deepChecker(self, rotation_matrix):
+        color = [[0 for _ in range(self.n)] for _ in range(self.n)]
+        queue = deque()
+        queue.append((self.n // 2, self.n // 2))
+        score = 0
+        while queue:
+            i, j = queue.popleft()
+            if color[i][j] == 1:
+                continue
+            for direction in rotation_matrix[i][j]:
+                if direction == 'U': 
+                    if i != 0 and rotation_matrix[i - 1][j] != None and 'D' in rotation_matrix[i - 1][j]: queue.append((i - 1, j))
+                elif direction == 'D':
+                    if i != self.n - 1 and rotation_matrix[i + 1][j] != None and 'U' in rotation_matrix[i + 1][j]: queue.append((i + 1, j))
+                elif direction == 'L':
+                    if j != 0 and rotation_matrix[i][j - 1] != None and 'R' in rotation_matrix[i][j - 1]: queue.append((i, j - 1))
+                elif direction == 'R':
+                    if j != self.n - 1 and rotation_matrix[i][j + 1] != None and 'L' in rotation_matrix[i][j + 1]: queue.append((i, j + 1))
+            color[i][j] = 1
+            score += 1
+        if score == self.target_score:
+            return rotation_matrix
+        return 0
 
     def checkRotation(self, i, j, rotation, rotation_matrix):
         if 'U' in rotation:
@@ -114,7 +140,7 @@ class DFS:
                 break
 
         if score == self.target_score:
-             return rotation_matrix
+             return self.deepChecker(rotation_matrix)
 
         for op in options:
             copied_rotation_matrix = copy.deepcopy(rotation_matrix)
