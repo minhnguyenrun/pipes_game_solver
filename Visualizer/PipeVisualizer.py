@@ -35,7 +35,8 @@ class PipeVisualizer:
             'start': (220, 20, 60),         # Crimson red
             'end': (100, 149, 237),         # Same as pipe color
             'grid': (70, 70, 70),           # Grid lines
-            'wrap_indicator': (200, 200, 200)  # Light gray for wrap indicators
+            'wrap_indicator': (200, 200, 200),  # Light gray for wrap indicators
+            'unfilled': (255, 255, 255)
         }
 
     def handle_resize(self, screen: pygame.Surface, width: int, height: int, grid) -> pygame.Surface:
@@ -62,23 +63,105 @@ class PipeVisualizer:
                             (padding, y * self.cell_size + padding), 
                             (grid.width * self.cell_size + padding, y * self.cell_size + padding))
         
-        # Draw pipes
+        # water fill
+
+        rotation_matrix = [["" for _ in range(grid.height)] for _ in range(grid.width)]
+        for j in range(grid.height):
+            for i in range(grid.width):
+                if grid.grid[i][j].pipe_type == PipeType.END:
+                    if grid.grid[i][j]._rotation == 0:
+                        rotation_matrix[i][j] = "D"
+                    elif grid.grid[i][j]._rotation == 1:
+                        rotation_matrix[i][j] = "L"
+                    elif grid.grid[i][j]._rotation == 2:
+                        rotation_matrix[i][j] = "U"
+                    else:
+                        rotation_matrix[i][j] = "R"
+                elif grid.grid[i][j].pipe_type == PipeType.STRAIGHT:
+                    if grid.grid[i][j]._rotation == 0 or grid.grid[i][j]._rotation == 2:
+                        rotation_matrix[i][j] = "UD"
+                    else:
+                        rotation_matrix[i][j] = "LR"
+                elif grid.grid[i][j].pipe_type == PipeType.CORNER:
+                    if grid.grid[i][j]._rotation == 0:
+                        rotation_matrix[i][j] = "UR"
+                    elif grid.grid[i][j]._rotation == 1:
+                        rotation_matrix[i][j] = "DR"
+                    elif grid.grid[i][j]._rotation == 2:
+                        rotation_matrix[i][j] = "DL"
+                    else:
+                        rotation_matrix[i][j] = "UL"
+                else:
+                    if grid.grid[i][j]._rotation == 0:
+                        rotation_matrix[i][j] = "UDR"
+                    elif grid.grid[i][j]._rotation == 1:
+                        rotation_matrix[i][j] = "DRL"
+                    elif grid.grid[i][j]._rotation == 2:
+                        rotation_matrix[i][j] = "UDL"
+                    else:
+                        rotation_matrix[i][j] = "URL"
+
+
+        queue = deque()
+        queue.append((grid.height // 2, grid.width // 2))
+
+        while queue:
+            i, j = queue.popleft()
+            if rotation_matrix[i][j] == None:
+                continue
+            pipe = grid.get_pipe(j, i)
+            color = self.colors['start'] if pipe.is_start else self.colors['pipe']
+            self.draw_pipe(screen, j, i, pipe, color)
+            for direction in rotation_matrix[i][j]:
+                if grid.wrap_enabled == False:
+                    if direction == 'U': 
+                        if i != 0 and rotation_matrix[i - 1][j] != None and 'D' in rotation_matrix[i - 1][j]: queue.append((i - 1, j))
+                    elif direction == 'D':
+                        if i != grid.height - 1 and rotation_matrix[i + 1][j] != None and 'U' in rotation_matrix[i + 1][j]: queue.append((i + 1, j))
+                    elif direction == 'L':
+                        if j != 0 and rotation_matrix[i][j - 1] != None and 'R' in rotation_matrix[i][j - 1]: queue.append((i, j - 1))
+                    elif direction == 'R':
+                        if j != grid.width - 1 and rotation_matrix[i][j + 1] != None and 'L' in rotation_matrix[i][j + 1]: queue.append((i, j + 1))
+                else:
+                    if direction == 'U':
+                        UP = i - 1 if i != 0 else grid.height - 1
+                        if rotation_matrix[UP][j] != None and 'D' in rotation_matrix[UP][j]: queue.append((UP, j))
+                    elif direction == 'D':
+                        DOWN = i + 1 if i != grid.height - 1 else 0
+                        if rotation_matrix[DOWN][j] != None and 'U' in rotation_matrix[DOWN][j]: queue.append((DOWN, j))
+                    elif direction == 'L':
+                        LEFT = j - 1 if j != 0 else grid.width - 1
+                        if rotation_matrix[i][LEFT] != None and 'R' in rotation_matrix[i][LEFT]: queue.append((i, LEFT))
+                    elif direction == 'R':
+                        RIGHT = j + 1 if j != grid.width - 1 else 0
+                        if rotation_matrix[i][RIGHT] != None and 'L' in rotation_matrix[i][RIGHT]: queue.append((i, RIGHT))
+            rotation_matrix[i][j] = None
+        
+        color = self.colors['unfilled']
         for y in range(grid.height):
             for x in range(grid.width):
                 pipe = grid.get_pipe(x, y)
-                if pipe and pipe.pipe_type != PipeType.EMPTY:
-                    self.draw_pipe(screen, x, y, pipe)
+                if rotation_matrix[y][x] != None:
+                    self.draw_pipe(screen, x, y, pipe, color)
+
+        # Draw pipes
+        #for y in range(grid.height):
+        #    for x in range(grid.width):
+        #        pipe = grid.get_pipe(x, y)
+        #        if pipe and pipe.pipe_type != PipeType.EMPTY:
+        #            self.draw_pipe(screen, x, y, pipe)
                         
         self.draw_wrap_indicators(screen, grid, padding)
         pygame.display.flip()
 
-    def draw_pipe(self, screen: pygame.Surface, x: int, y: int, pipe) -> None:
+
+    def draw_pipe(self, screen: pygame.Surface, x: int, y: int, pipe, color) -> None:
         padding = 30
         center_x = x * self.cell_size + self.cell_size // 2 + padding
         center_y = y * self.cell_size + self.cell_size // 2 + padding
         radius = self.cell_size // 2.2
         
-        color = self.colors['start'] if pipe.is_start else self.colors['pipe']
+        #color = self.colors['start'] if pipe.is_start else self.colors['pipe']
         
         if pipe.is_end:
             # Draw center circle for END pipe
@@ -383,6 +466,7 @@ class Grid:
                         self.install_pipe(j, i, PipeType.TEE, 3)
         self.set_start(n // 2, n // 2)
 
+
     def __init__(self, n, matrix, wrap_enabled: bool = False):
         self.width = n
         self.height = n
@@ -399,7 +483,7 @@ class Grid:
                 elif matrix[i][j] == 2:
                     case = random.randint(1, 2)
                     self.install_pipe(j, i, PipeType.STRAIGHT, case)
-                elif matrix[i][j] == 2:
+                elif matrix[i][j] == 3:
                     case = random.randint(1, 4)
                     self.install_pipe(j, i, PipeType.CORNER, case)
                 else:
@@ -428,7 +512,7 @@ class Grid:
     def set_start(self, x: int, y: int) -> bool:
         """Mark a pipe as the start point. Only TEE, , or CORNER pipes can be start points."""
         pipe = self.get_pipe(x, y)
-        if pipe and pipe.pipe_type in [PipeType.TEE, PipeType.CROSS, PipeType.CORNER]:
+        if pipe and pipe.pipe_type in [PipeType.TEE, PipeType.CROSS, PipeType.CORNER, PipeType.END]:
             # Clear any existing start point
             if self.start_pos:
                 old_x, old_y = self.start_pos
