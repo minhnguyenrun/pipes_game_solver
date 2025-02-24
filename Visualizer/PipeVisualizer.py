@@ -308,15 +308,22 @@ class PipeVisualizer:
             self.draw_grid(screen, current_grid)
             pygame.display.flip()
             pygame.time.wait(int(delay * 1000))
-        
+             
+        try:
+            while True:
+                self.draw_grid(screen, current_grid)
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        pygame.quit()
+                        return
+        except KeyboardInterrupt:
+            pygame.quit()     
+
         for row in ans:
             print(row)
         print("----------------------------")
         _ = input("Press anything to continue")
         print("----------------------------")
-
-        # Show final state
-        pygame.quit()
 
     def visualize(self, n, matrix, rotation_matrix, wrap_able = False) -> None:
         """Visualize solution step by step."""
