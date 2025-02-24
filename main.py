@@ -1,5 +1,6 @@
 ﻿import copy
 import random
+from xml.dom.minidom import Element
 from CreateMatrix import createMatrix, createMatrix_wrap
 from ReadInput import readFile, readTerminal
 from Algorithms.Greedy_unwrap import Greedy
@@ -48,7 +49,10 @@ if __name__ == "__main__":
             else:
                 matrix = createMatrix_wrap(case3)
             print(n)
-            print(matrix)
+            for row in matrix:
+                for ele in row:
+                    print(ele, end = " ")
+                print()
 
         print("----------------------------")
         print("Do you need visualization?")

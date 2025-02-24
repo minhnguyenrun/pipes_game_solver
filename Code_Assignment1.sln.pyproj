@@ -29,15 +29,23 @@
     <Compile Include="ReadInput.py" />
     <Compile Include="Visualizer\DFS_unwrap.py" />
     <Compile Include="Visualizer\DFS_wrap.py" />
+    <Compile Include="Evaluate.py" />
     <Compile Include="Visualizer\Greedy_unwrap.py" />
     <Compile Include="Visualizer\Greedy_wrap.py" />
     <Compile Include="Visualizer\PipeVisualizer.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Evaluate\DFS_wrap_evalutation.txt" />
+    <Content Include="Evaluate\Greedy_evalutation.txt" />
+    <Content Include="Evaluate\Greedy_wrap_evalutation.txt" />
+    <Content Include="Evaluate\DFS_evalutation.txt" />
     <Content Include="Input_Matrix.txt" />
+    <Content Include="Testcase\10x10_id_4816296.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Algorithms\" />
+    <Folder Include="Evaluate\" />
+    <Folder Include="Testcase\" />
     <Folder Include="Visualizer\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
