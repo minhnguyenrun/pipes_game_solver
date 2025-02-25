@@ -43,12 +43,10 @@ if __name__ == "__main__":
 
     test(100, 4, 20, "DFS")
 
-    test(100, 4, 20, "Greedy")
-    test(100, 21, 25, "Greedy")
+    test(100, 4, 25, "Greedy")
 
     test(100, 4, 15, "DFS_wrap")
 
-    test(100, 4, 15, "Greedy_wrap")
-    test(100, 16, 20, "Greedy_wrap")
+    test(100, 4, 20, "Greedy_wrap")
 
 
