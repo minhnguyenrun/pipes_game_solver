@@ -41,10 +41,10 @@ def test(number_testcase, size_begin, size_end, name):
 
 if __name__ == "__main__":
 
-    #test(100, 4, 20, "DFS")
+    test(100, 4, 20, "DFS")
 
-    #test(100, 4, 20, "Greedy")
-    #test(100, 21, 25, "Greedy")
+    test(100, 4, 20, "Greedy")
+    test(100, 21, 25, "Greedy")
 
     test(100, 4, 15, "DFS_wrap")
 
