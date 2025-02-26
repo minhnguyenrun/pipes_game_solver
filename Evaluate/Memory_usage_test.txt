@@ -1,0 +1,142 @@
+Welcome to DFS
+Size 4 :
+Average memory usage: 15.725390625 KiB (+/- 20.313877041664576)
+Size 5 :
+Average memory usage: 9.915625 KiB (+/- 3.753125)
+Size 6 :
+Average memory usage: 12.096875 KiB (+/- 2.475)
+Size 7 :
+Average memory usage: 15.6390625 KiB (+/- 2.985231388906478)
+Size 8 :
+Average memory usage: 20.2765625 KiB (+/- 4.471545235919569)
+Size 9 :
+Average memory usage: 26.296875 KiB (+/- 3.65625)
+Size 10 :
+Average memory usage: 33.1125 KiB (+/- 4.109151015758912)
+Size 11 :
+Average memory usage: 40.196875 KiB (+/- 4.183788583815213)
+Size 12 :
+Average memory usage: 48.1515625 KiB (+/- 4.6052195251692405)
+Size 13 :
+Average memory usage: 57.9703125 KiB (+/- 5.113724734874033)
+Size 14 :
+Average memory usage: 66.8078125 KiB (+/- 6.2092314873954)
+Size 15 :
+Average memory usage: 96.1712890625 KiB (+/- 16.01353544390901)
+Size 16 :
+Average memory usage: 116.3564453125 KiB (+/- 11.689565384277168)
+Size 17 :
+Average memory usage: 168.6203125 KiB (+/- 20.574256114096507)
+Size 18 :
+Average memory usage: 193.6083984375 KiB (+/- 24.9641202795245)
+Size 19 :
+Average memory usage: 208.3796875 KiB (+/- 21.507555449335708)
+Size 20 :
+Average memory usage: 244.7765625 KiB (+/- 34.08935208802376)
+Welcome to Greedy
+Size 4 :
+Average memory usage: 2.115625 KiB (+/- 0.6844820121814744)
+Size 5 :
+Average memory usage: 3.13984375 KiB (+/- 1.451747498975373)
+Size 6 :
+Average memory usage: 2.628125 KiB (+/- 0.015309310892394862)
+Size 7 :
+Average memory usage: 3.403125 KiB (+/- 0.8904139004207537)
+Size 8 :
+Average memory usage: 4.5390625 KiB (+/- 1.3683343404254313)
+Size 9 :
+Average memory usage: 7.440625 KiB (+/- 1.0146702242908776)
+Size 10 :
+Average memory usage: 10.3421875 KiB (+/- 1.769888381455876)
+Size 11 :
+Average memory usage: 12.41875 KiB (+/- 1.461790359349623)
+Size 12 :
+Average memory usage: 18.9767578125 KiB (+/- 4.750638593612352)
+Size 13 :
+Average memory usage: 20.209375 KiB (+/- 6.339723937946747)
+Size 14 :
+Average memory usage: 26.0154296875 KiB (+/- 10.154924951122949)
+Size 15 :
+Average memory usage: 31.3126953125 KiB (+/- 11.754662816555317)
+Size 16 :
+Average memory usage: 29.2453125 KiB (+/- 8.945790243792747)
+Size 17 :
+Average memory usage: 43.0921875 KiB (+/- 7.704393277945383)
+Size 18 :
+Average memory usage: 45.27578125 KiB (+/- 8.787485830802945)
+Size 19 :
+Average memory usage: 46.4515625 KiB (+/- 7.0098082790740435)
+Size 20 :
+Average memory usage: 52.51171875 KiB (+/- 12.839880471311956)
+Size 21 :
+Average memory usage: 59.69375 KiB (+/- 8.969100330701375)
+Size 22 :
+Average memory usage: 62.30234375 KiB (+/- 14.258770430148859)
+Size 23 :
+Average memory usage: 73.58203125 KiB (+/- 10.404024489875901)
+Size 24 :
+Average memory usage: 73.82421875 KiB (+/- 12.723784898702016)
+Size 25 :
+Average memory usage: 80.70078125 KiB (+/- 14.573850022975655)
+
+Welcome to DFS_wrap
+Size 4 :
+Average memory usage: 5.90625 KiB (+/- 0.90625)
+Size 5 :
+Average memory usage: 8.1046875 KiB (+/- 0.13125)
+Size 6 :
+Average memory usage: 10.946875 KiB (+/- 0.1126084546670453)
+Size 7 :
+Average memory usage: 14.3828125 KiB (+/- 0.32834813841409244)
+Size 8 :
+Average memory usage: 19.184375 KiB (+/- 0.824322046252252)
+Size 9 :
+Average memory usage: 25.4453125 KiB (+/- 1.313829311949425)
+Size 10 :
+Average memory usage: 33.4796875 KiB (+/- 1.7463731949206904)
+Size 11 :
+Average memory usage: 65.939453125 KiB (+/- 43.04581097681129)
+Size 12 :
+Average memory usage: 55.5453125 KiB (+/- 7.333695577286563)
+Size 13 :
+Average memory usage: 67.71796875 KiB (+/- 9.94499373890798)
+Size 14 :
+Average memory usage: 71.1884765625 KiB (+/- 5.32217531460076)
+Size 15 :
+Average memory usage: 135.3171875 KiB (+/- 31.3498088143343)
+
+Welcome to Greedy_wrap
+Size 4 :
+Average memory usage: 5.5796875 KiB (+/- 1.8812162580030505)
+Size 5 :
+Average memory usage: 4.9921875 KiB (+/- 0.6152560760061618)
+Size 6 :
+Average memory usage: 9.1953125 KiB (+/- 1.7553767846960948)
+Size 7 :
+Average memory usage: 10.66875 KiB (+/- 0.9043163638558688)
+Size 8 :
+Average memory usage: 15.9859375 KiB (+/- 2.397143889741498)
+Size 9 :
+Average memory usage: 20.7609375 KiB (+/- 6.9999696567422705)
+Size 10 :
+Average memory usage: 22.36875 KiB (+/- 4.436474903604494)
+Size 11 :
+Average memory usage: 28.4140625 KiB (+/- 3.0794215226341617)
+Size 12 :
+Average memory usage: 35.7640625 KiB (+/- 7.844973759117999)
+Size 13 :
+Average memory usage: 37.853125 KiB (+/- 10.515308548358792)
+Size 14 :
+Average memory usage: 49.68828125 KiB (+/- 9.477532540006127)
+Size 15 :
+Average memory usage: 44.6765625 KiB (+/- 14.716247299169464)
+Size 16 :
+Average memory usage: 64.0859375 KiB (+/- 12.988761856709534)
+Size 17 :
+Average memory usage: 67.23828125 KiB (+/- 7.876895543197047)
+Size 18 :
+Average memory usage: 76.33671875 KiB (+/- 15.541899015242636)
+Size 19 :
+Average memory usage: 91.3140625 KiB (+/- 8.394616718096783)
+Size 20 :
+Average memory usage: 94.03671875 KiB (+/- 11.685673006433188)

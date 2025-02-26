@@ -1,0 +1,124 @@
+Welcome to DFS
+Size 4 :
+Average execution time: 0.000300 seconds (+/- 0.000458)
+Size 5 :
+Average execution time: 0.000500 seconds (+/- 0.000500)
+Size 6 :
+Average execution time: 0.000860 seconds (+/- 0.000530)
+Size 7 :
+Average execution time: 0.001291 seconds (+/- 0.000532)
+Size 8 :
+Average execution time: 0.001794 seconds (+/- 0.000799)
+Size 9 :
+Average execution time: 0.002465 seconds (+/- 0.001273)
+Size 10 :
+Average execution time: 0.003112 seconds (+/- 0.001386)
+Size 11 :
+Average execution time: 0.004952 seconds (+/- 0.004204)
+Size 12 :
+Average execution time: 0.007633 seconds (+/- 0.006654)
+Size 13 :
+Average execution time: 0.016894 seconds (+/- 0.043505)
+Size 14 :
+Average execution time: 0.019952 seconds (+/- 0.058704)
+Size 15 :
+Average execution time: 0.092932 seconds (+/- 0.435198)
+Size 16 :
+Average execution time: 0.088369 seconds (+/- 0.436643)
+Size 17 :
+Average execution time: 0.105130 seconds (+/- 0.235197)
+Size 18 :
+Average execution time: 0.108084 seconds (+/- 0.201913)
+Size 19 :
+Average execution time: 0.100726 seconds (+/- 0.265175)
+Size 20 :
+Average execution time: 0.310101 seconds (+/- 0.991868)
+Welcome to Greedy
+Size 4 :
+Average execution time: 0.000380 seconds (+/- 0.000486)
+Size 5 :
+Average execution time: 0.000633 seconds (+/- 0.000609)
+Size 6 :
+Average execution time: 0.001071 seconds (+/- 0.000736)
+Size 7 :
+Average execution time: 0.001727 seconds (+/- 0.000749)
+Size 8 :
+Average execution time: 0.002616 seconds (+/- 0.001095)
+Size 9 :
+Average execution time: 0.003543 seconds (+/- 0.001579)
+Size 10 :
+Average execution time: 0.005016 seconds (+/- 0.002183)
+Size 11 :
+Average execution time: 0.007351 seconds (+/- 0.003915)
+Size 12 :
+Average execution time: 0.010094 seconds (+/- 0.004683)
+Size 13 :
+Average execution time: 0.014233 seconds (+/- 0.008354)
+Size 14 :
+Average execution time: 0.019756 seconds (+/- 0.026579)
+Size 15 :
+Average execution time: 0.040848 seconds (+/- 0.135373)
+Size 16 :
+Average execution time: 0.033686 seconds (+/- 0.060782)
+Size 17 :
+Average execution time: 0.047274 seconds (+/- 0.057970)
+Size 18 :
+Average execution time: 0.048940 seconds (+/- 0.044355)
+Size 19 :
+Average execution time: 0.048535 seconds (+/- 0.039722)
+Size 20 :
+Average execution time: 0.084891 seconds (+/- 0.140470)
+Welcome to DFS_wrap
+Size 4 :
+Average execution time: 0.000992 seconds (+/- 0.000830)
+Size 5 :
+Average execution time: 0.003918 seconds (+/- 0.003490)
+Size 6 :
+Average execution time: 0.007772 seconds (+/- 0.008076)
+Size 7 :
+Average execution time: 0.016351 seconds (+/- 0.024564)
+Size 8 :
+Average execution time: 0.034884 seconds (+/- 0.050520)
+Size 9 :
+Average execution time: 0.043856 seconds (+/- 0.043664)
+Size 10 :
+Average execution time: 0.163973 seconds (+/- 0.334548)
+Size 11 :
+Average execution time: 0.280746 seconds (+/- 0.357855)
+Size 12 :
+Average execution time: 0.598652 seconds (+/- 0.886915)
+Welcome to Greedy_wrap
+Size 4 :
+Average execution time: 0.001768 seconds (+/- 0.000760)
+Size 5 :
+Average execution time: 0.002885 seconds (+/- 0.001460)
+Size 6 :
+Average execution time: 0.004896 seconds (+/- 0.002596)
+Size 7 :
+Average execution time: 0.006911 seconds (+/- 0.004738)
+Size 8 :
+Average execution time: 0.009373 seconds (+/- 0.005574)
+Size 9 :
+Average execution time: 0.012978 seconds (+/- 0.007033)
+Size 10 :
+Average execution time: 0.019414 seconds (+/- 0.023238)
+Size 11 :
+Average execution time: 0.017967 seconds (+/- 0.008917)
+Size 12 :
+Average execution time: 0.037631 seconds (+/- 0.040747)
+Size 13 :
+Average execution time: 0.049730 seconds (+/- 0.065178)
+Size 14 :
+Average execution time: 0.065888 seconds (+/- 0.073530)
+Size 15 :
+Average execution time: 0.078063 seconds (+/- 0.107753)
+Size 16 :
+Average execution time: 0.111504 seconds (+/- 0.151229)
+Size 17 :
+Average execution time: 0.074488 seconds (+/- 0.056452)
+Size 18 :
+Average execution time: 0.154123 seconds (+/- 0.292724)
+Size 19 :
+Average execution time: 0.195124 seconds (+/- 0.296634)
+Size 20 :
+Average execution time: 0.364831 seconds (+/- 0.883884)
