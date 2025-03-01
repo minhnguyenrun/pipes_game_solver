@@ -1,0 +1,8 @@
+Guide how to input matrix:
+- input n
+- input matrix n x n with:
++ 1: End
++ 2: Straight
++ 3: Corner
++ 4: Tee
+Refer to Input_Matrix.txt
